@@ -1,4 +1,5 @@
 import { auth, googleAuthProvider } from '../firebase/firebaseConfig';
+import Link from 'next/link'
 
 export default function Enter(props) {
   const user = null;
@@ -8,12 +9,16 @@ export default function Enter(props) {
   // 2. user signed in, but missing username <UsernameForm />
   // 3. user signed in, has username <SignOutButton />
   return (
-    <main>
-      {user ? 
-        !username ? <UsernameForm /> : <SignOutButton /> 
-        : 
-        <SignInButton />
-      }
+    <main className='container'>
+      {user ? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}
+
+      <br />
+
+      <Link href="/">
+        <a>
+          <h3>Volver a inicio</h3>
+        </a>
+      </Link>
     </main>
   );
 }
@@ -26,7 +31,7 @@ function SignInButton() {
 
   return (
     <button className="btn-google" onClick={signInWithGoogle}>
-      <img src={'/google.png'} width="42" height="42"/> Sign in with Google
+      <img src={'/google.png'} width="42" height="42" /> Iniciar sesion con Google
     </button>
   );
 }
