@@ -3,8 +3,6 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import 'firebase/compat/storage';
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyCPt_LrLT0Li6XwB8U2bAREx2EcjF6mc0Q",
@@ -24,8 +22,11 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
 }
 
+// Auth exports
 export const auth = firebase.auth();
-export const firestore = firebase.firestore();
-export const storage = firebase.storage();
-
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+export const emailAuthProvider = new firebase.auth.EmailAuthProvider();
+
+// Firestore exports
+export const firestore = firebase.firestore();
+
