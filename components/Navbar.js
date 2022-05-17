@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image'
+
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { UserContext } from '../firebase/context';
@@ -42,7 +44,7 @@ export default function Navbar() {
                             <p>Hola, {nameSplit(user.displayName)}!</p>
                         </li>
                         <li>
-                            <img src={user.photoURL || '/generic.png'} />
+                            <Image src={user?.photoURL || '/generic.png'} width='50px' height='50px' alt="Profile picture" />
                         </li>
                     </>
                 )}
