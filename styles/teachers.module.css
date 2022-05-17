@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.fullPage {
+    padding: 2rem;
+    padding-top: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+    background: linear-gradient(180deg, rgba(231,215,43,1) 0%, rgba(230,206,43,1) 35%, rgba(255,180,49,1) 100%);
+}
+
+.teacherProfile {
+    color: red
+}
+
+#subject {
+    color: pink
+}
