@@ -19,7 +19,7 @@ export default function Search() {
         {profsloading && <span>Collection: Loading...</span>}
       {profs && profs.docs.map((doc) => (
               <div>
-                {JSON.stringify(doc.data())},{' '}
+                {JSON.stringify(doc.data().name)},{''}
               </div>
             ))}
             </div>
