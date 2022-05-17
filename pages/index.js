@@ -12,21 +12,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
-        <div className={styles.grid}>
-          <Link href="/login">
-            <a className={styles.card}>
-              <h2>Registrarse</h2>
-            </a>
-          </Link>
-          <Link href="/login">
-            <a className={styles.card}>
-              <h2>Iniciar Sesion</h2>
-            </a>
-          </Link>
-        </div>
-      </header>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           Bienvenido a Opinion Maestra!

@@ -1,16 +1,17 @@
 import { auth, googleAuthProvider } from '../firebase/firebase.init';
+import { UserContext } from '../firebase/context';
+
+import { useContext } from 'react';
+
 import Link from 'next/link'
 
 export default function Enter(props) {
-  const user = null;
-  const username = null;
+  const { user, username } = useContext(UserContext);
 
-  // 1. user signed out <SignInButton />
-  // 2. user signed in, but missing username <UsernameForm />
-  // 3. user signed in, has username <SignOutButton />
+  // If user is signed in, show sign out button. Else show sign in button.
   return (
     <main className='container'>
-      {user ? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}
+      {user ? <SignOutButton /> : <SignInButton />}
 
       <br />
 
@@ -31,16 +32,17 @@ function SignInButton() {
 
   return (
     <button className="btn-google" onClick={signInWithGoogle}>
-      <img src={'/google.png'} width="42" height="42" /> Iniciar sesion con Google
+      <img src={'/google.png'} width="30" height="30" /> Inicia sesion con Google
     </button>
   );
 }
 
 // Sign out button
 function SignOutButton() {
-  return <button onClick={() => auth.signOut()}>Sign Out</button>;
-}
+  return (
+    <>
+      <h1>Hola {auth.currentUser.displayName}!</h1>
+    </>
+  );
 
-function UsernameForm() {
-  return null;
 }

@@ -1,19 +1,15 @@
 import styles from '../../styles/teachers.module.css'
+import Head from 'next/head'
 
 const TeacherProfile = () => {
     return (
         <div className={styles.fullPage}>
-            <head>
+            <Head>
                 <title>
                     Teachers Profile
                 </title>
-            </head>
-            <header>
-                <h1 id="logo">
-                    Logo
-                </h1>
-            </header>
-            <body id="body">
+            </Head>
+            <div id="body">
                 <main className={styles.teacherMain}>
                     <div className={styles.teacherProfile}>
                         <h2 id="teacherName">Nombre del Profesor</h2>
@@ -44,7 +40,7 @@ const TeacherProfile = () => {
                         <p>Blanck space</p>
                     </div>
                 </main>
-            </body>
+            </div>
         </div>
     );
 }
