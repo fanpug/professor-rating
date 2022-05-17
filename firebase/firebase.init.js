@@ -28,5 +28,4 @@ export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export const emailAuthProvider = new firebase.auth.EmailAuthProvider();
 
 // Firestore exports
-export const firestore = firebase.firestore();
-
+export const db = firebase.firestore();

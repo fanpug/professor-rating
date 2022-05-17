@@ -1,4 +1,4 @@
-import { auth, googleAuthProvider } from '../firebase/firebaseConfig';
+import { auth, googleAuthProvider } from '../firebase/firebase.init';
 import Link from 'next/link'
 
 export default function Enter(props) {
