@@ -52,6 +52,23 @@
     color: white
 }
 
+.headerOpinions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.recentOpinions {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-style: solid;
+    border-radius: 24px;
+}
+
+.usernameText {
+    font-weight: bold;
+}
+
 .writeOpinion {
     padding-top: 5rem;
 }

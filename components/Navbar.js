@@ -41,7 +41,7 @@ export default function Navbar() {
                             <button onClick={signOut}>Cerrar Sesion</button>
                         </li>
                         <li>
-                            <p>Hola, {nameSplit(user.displayName)}!</p>
+                            <p>Hola!, {nameSplit(user.displayName)}</p>
                         </li>
                         <li>
                             <Image src={user?.photoURL || '/generic.png'} width='50px' height='50px' alt="Profile picture" />
