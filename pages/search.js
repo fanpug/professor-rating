@@ -2,10 +2,8 @@ import { db } from "../firebase/firebase.init";
 import { onSnapshot, collection, orderBy, query } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useEffect, useState } from "react";
-
 import Link from 'next/link';
-
-import styles from '../styles/Home.module.css'
+import styles from '../styles/search.module.css'
 
 export default function Search() {
   const [profs, profsloading, profserror] = useCollection(
@@ -14,9 +12,10 @@ export default function Search() {
   );
 
   return (
-    <div div className={styles.container}>
+    <div className={styles.bodyPage}>
       <h1> Profesores </h1>
-      <div>
+      <div className={styles.teachers}>
+        <h2>
         {profserror && <strong>Error: {JSON.stringify(profserror)}</strong>}
         {profsloading && <span>Collection: Loading...</span>}
         <ul>
@@ -30,9 +29,10 @@ export default function Search() {
             </li>
           ))}
         </ul>
+        </h2>
       </div>
     </div>
 
-  )
+  );
 
 }
