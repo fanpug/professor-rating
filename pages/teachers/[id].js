@@ -26,6 +26,8 @@ export const getStaticProps = async (context) => {
     }
 }
 
+
+
 const TeacherProfile = ({ teacherProps }) => {
     const teacher = JSON.parse(teacherProps);
     return (
@@ -53,15 +55,22 @@ const TeacherProfile = ({ teacherProps }) => {
                         </div>
                     </div>
                     
-                    <div id={styles.recentOptions}>
-                        <h1>Opiniones Recientes</h1>
-                        <h2>Filtrar Por: </h2>
-                        <div className="teachersOpinions">
-                            <p>Nombre usuario: </p>
+                    <div className={styles.opinions}>
+                        
+                        <div className={styles.headerOpinions}>
+                            <h1>Opiniones Recientes</h1>
+                            <h2>Filtrar por: </h2>
+                                <select name="opinionsFilter" className={styles.opinionsFilter}>
+                                    <option value="recents">Recientes</option>
+                                    <option value="featured">Destacadas</option>
+                                </select> 
+                        </div>
+                        <div className={styles.recentOpinions}>
+                            <p className={styles.usernameText}>Nombre usuario: </p>
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, dicta officia odit laborum veritatis porro unde quidem aliquam sint ipsam tempore dolorem reprehenderit id quam distinctio nemo! Ratione, nobis voluptatem!</p>
-                            <p>Nombre usuario: </p>
+                            <p className={styles.usernameText}>Nombre usuario: </p>
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, dicta officia odit laborum veritatis porro unde quidem aliquam sint ipsam tempore dolorem reprehenderit id quam distinctio nemo! Ratione, nobis voluptatem!</p>
-                            <p>Nombre usuario: </p>
+                            <p className={styles.usernameText}>Nombre usuario: </p>
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, dicta officia odit laborum veritatis porro unde quidem aliquam sint ipsam tempore dolorem reprehenderit id quam distinctio nemo! Ratione, nobis voluptatem!</p>
                         </div>
                     </div>
