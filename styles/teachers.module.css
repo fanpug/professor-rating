@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
 .fullPage {
     padding: 2rem;
     padding-top: 1rem;
@@ -7,10 +8,40 @@
     background: linear-gradient(180deg, rgba(231,215,43,1) 0%, rgba(230,206,43,1) 35%, rgba(255,180,49,1) 100%);
 }
 
-.teacherProfile {
-    color: red
+.body {
+    display: flex;
+
 }
 
-#subject {
-    color: pink
+.teacherBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: black;
+}
+
+.teacherColumn {
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.teacherProfile {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0;
+}
+
+.teacherProfile h4.subject{
+    padding-right: 6rem;
+}
+
+.fastOpinions {
+    padding-right: 16rem;
+}
+
+.fastOpinions h3 {
+    font-weight: bold;
+    color: white
 }
