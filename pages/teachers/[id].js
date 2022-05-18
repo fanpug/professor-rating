@@ -37,17 +37,20 @@ const TeacherProfile = ({ teacherProps }) => {
             </Head>
             <div className={styles.body}>
                 <main className={styles.teacherMain}>
-                    <div className={styles.teacherProfile}>
-                        <h2>{teacher.name}</h2>
-                        <h4>{teacher.subjects}</h4>
-                        <h4 id="school">Facultad</h4>
-                    </div>
-                    <div className={styles.fastOpinions}>
-                        <h3>Opiniones Rapidas</h3>
-                        <p>Profesor barco: 87%</p>
-                        <p>Examenes Dificiles: 40%</p>
-                        <p>Enseña bien: 10%</p>
-                        <div className="profilePicture">laFoto</div>
+                    <div className={styles.teacherBox}>
+                        <div className={styles.teacherColumn}>
+                            <h2 className={styles.teacherName}>{teacher.name}</h2>
+                            <div className={styles.teacherProfile}>
+                                <h4 className={styles.subject}>{teacher.subjects}</h4>
+                                <h4 className={styles.school}>UACH Ingenieria</h4>
+                            </div>
+                        </div>
+                            <div className={styles.fastOpinions}>
+                                <h3>Opiniones Rapidas</h3>
+                                <p>Profesor barco: 87%</p>
+                                <p>Examenes Dificiles: 40%</p>
+                                <p>Enseña bien: 10%</p>
+                            </div>
                     </div>
                     
                     <div id={styles.recentOptions}>
