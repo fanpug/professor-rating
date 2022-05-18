@@ -45,12 +45,12 @@ const TeacherProfile = ({ teacherProps }) => {
                                 <h4 className={styles.school}>UACH Ingenieria</h4>
                             </div>
                         </div>
-                            <div className={styles.fastOpinions}>
-                                <h3>Opiniones Rapidas</h3>
-                                <p>Profesor barco: 87%</p>
-                                <p>Examenes Dificiles: 40%</p>
-                                <p>Enseña bien: 10%</p>
-                            </div>
+                        <div className={styles.fastOpinions}>
+                            <h3>Opiniones Rapidas</h3>
+                            <p>Profesor barco: 87%</p>
+                            <p>Examenes Dificiles: 40%</p>
+                            <p>Enseña bien: 10%</p>
+                        </div>
                     </div>
                     
                     <div id={styles.recentOptions}>
@@ -65,14 +65,16 @@ const TeacherProfile = ({ teacherProps }) => {
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, dicta officia odit laborum veritatis porro unde quidem aliquam sint ipsam tempore dolorem reprehenderit id quam distinctio nemo! Ratione, nobis voluptatem!</p>
                         </div>
                     </div>
-                    <div id={styles.writeOpinion}>
+                    <div className={styles.writeOpinion}>
                         <h2>Escribir opinion</h2>
-                        <p>Blanck space</p>
+                        <form action="/send-data-here" method="post">    
+                            <textarea id="userOpinion" name="userOpinion"/>
+                            <button type="submit">Publicar Opinion</button>
+                        </form>
                         <Link href="/search">
                             <button className="btn-blue">Volver a la pagina de busqueda</button>
                         </Link>
                     </div>
-
                 </main>
             </div>
         </div>
