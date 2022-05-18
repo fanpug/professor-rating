@@ -1,7 +1,33 @@
 import styles from '../../styles/teachers.module.css'
 import Head from 'next/head'
+import Link from 'next/link'
 
-const TeacherProfile = () => {
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import { db } from "../../firebase/firebase.init";
+
+export const getStaticPaths = async () => {
+    const snapshot = await getDocs(collection(db, 'teachers'));
+    const paths = snapshot.docs.map(doc => {
+        return {
+            params: { id: doc.id.toString() }
+        }
+    });
+
+    return { paths, fallback: false }
+}
+
+export const getStaticProps = async (context) => {
+    const id = context.params.id;
+    const docRef = doc(db, 'teachers', id);
+    const docSnap = await getDoc(docRef);
+
+    return {
+        props: { teacherProps: JSON.stringify(docSnap.data()) }
+    }
+}
+
+const TeacherProfile = ({ teacherProps }) => {
+    const teacher = JSON.parse(teacherProps);
     return (
         <div className={styles.fullPage}>
             <Head>
@@ -12,8 +38,8 @@ const TeacherProfile = () => {
             <div id="body">
                 <main className={styles.teacherMain}>
                     <div className={styles.teacherProfile}>
-                        <h2 id="teacherName">Nombre del Profesor</h2>
-                        <h4 id="subject">Materia</h4>
+                        <h2>{teacher.name}</h2>
+                        <h4>{teacher.subjects}</h4>
                         <h4 id="school">Facultad</h4>
                     </div>
                     <div className={styles.fastOpinions}>
@@ -38,7 +64,11 @@ const TeacherProfile = () => {
                     <div id={styles.writeOpinion}>
                         <h2>Escribir opinion</h2>
                         <p>Blanck space</p>
+                        <Link href="/search">
+                            <button className="btn-blue">Volver a la pagina de busqueda</button>
+                        </Link>
                     </div>
+
                 </main>
             </div>
         </div>

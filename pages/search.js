@@ -1,9 +1,11 @@
-import firebase from 'firebase/compat/app';
 import { db } from "../firebase/firebase.init";
-import 'firebase/firestore';
-import {Container, Row, Col, Button, Input, Form} from 'reactstrap';
+import { onSnapshot, collection, orderBy, query } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useEffect, useState } from "react";
 
+import Link from 'next/link';
+
+import styles from '../styles/Home.module.css'
 
 export default function Search() {
   const [profs, profsloading, profserror] = useCollection(
@@ -11,19 +13,25 @@ export default function Search() {
     {}
   );
 
-  return(
-    <Col>
+  return (
+    <div div className={styles.container}>
       <h1> Profesores </h1>
       <div>
-      {profserror && <strong>Error: {JSON.stringify(profserror)}</strong>}
+        {profserror && <strong>Error: {JSON.stringify(profserror)}</strong>}
         {profsloading && <span>Collection: Loading...</span>}
-      {profs && profs.docs.map((doc) => (
-              <div>
-                {JSON.stringify(doc.data().name)},{''}
-              </div>
-            ))}
-            </div>
-    </Col>
+        <ul>
+          {profs && profs.docs.map(doc => (
+            <li key={doc.data().id}>
+              <Link href={'/teachers/' + doc.id}>
+                <a>
+                  {doc.data().name}
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
   )
 

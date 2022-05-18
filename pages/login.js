@@ -4,6 +4,7 @@ import { UserContext } from '../firebase/context';
 import { useContext } from 'react';
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
@@ -32,7 +33,7 @@ function SignInButton() {
 
   return (
     <button className="btn-google" onClick={signInWithGoogle}>
-      <img src={'/google.png'} width="30" height="30" /> Inicia sesion con Google
+      <Image src={'/google.png'} width="30" height="30" alt='' /> Inicia sesion con Google
     </button>
   );
 }
