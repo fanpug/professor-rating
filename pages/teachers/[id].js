@@ -1,12 +1,13 @@
-import styles from '../../styles/teachers.module.css'
-import Head from 'next/head'
-import Link from 'next/link'
+import styles from '../../styles/teachers.module.css';
+import Head from 'next/head';
+import Link from 'next/link';
 
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
-import { db } from "../../firebase/firebase.init";
+import { database } from "../../firebaseConfig";
+import Navbar from '../../components/Navbar';
 
 export const getStaticPaths = async () => {
-    const snapshot = await getDocs(collection(db, 'teachers'));
+    const snapshot = await getDocs(collection(database, 'teachers'));
     const paths = snapshot.docs.map(doc => {
         return {
             params: { id: doc.id.toString() }
@@ -18,7 +19,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-    const docRef = doc(db, 'teachers', id);
+    const docRef = doc(database, 'teachers', id);
     const docSnap = await getDoc(docRef);
 
     return {
@@ -31,13 +32,14 @@ export const getStaticProps = async (context) => {
 const TeacherProfile = ({ teacherProps }) => {
     const teacher = JSON.parse(teacherProps);
     return (
-        <div className={styles.fullPage}>
+        <div className={styles.container}>
             <Head>
                 <title>
                     Teachers Profile
                 </title>
             </Head>
-            <div className={styles.body}>
+            <Navbar />
+            <div className={styles.fullPage}>
                 <main className={styles.teacherMain}>
                     <div className={styles.teacherBox}>
                         <div className={styles.teacherColumn}>
@@ -54,16 +56,16 @@ const TeacherProfile = ({ teacherProps }) => {
                             <p>Enseña bien: 10%</p>
                         </div>
                     </div>
-                    
+
                     <div className={styles.opinions}>
-                        
+
                         <div className={styles.headerOpinions}>
                             <h1>Opiniones Recientes</h1>
                             <h2>Filtrar por: </h2>
-                                <select name="opinionsFilter" className={styles.opinionsFilter}>
-                                    <option value="recents">Recientes</option>
-                                    <option value="featured">Destacadas</option>
-                                </select> 
+                            <select name="opinionsFilter" className={styles.opinionsFilter}>
+                                <option value="recents">Recientes</option>
+                                <option value="featured">Destacadas</option>
+                            </select>
                         </div>
                         <div className={styles.recentOpinions}>
                             <p className={styles.usernameText}>Nombre usuario: </p>
@@ -76,8 +78,8 @@ const TeacherProfile = ({ teacherProps }) => {
                     </div>
                     <div className={styles.writeOpinion}>
                         <h2>Escribir opinion</h2>
-                        <form action="/send-data-here" method="post">    
-                            <textarea id="userOpinion" name="userOpinion"/>
+                        <form action="/send-data-here" method="post">
+                            <textarea id="userOpinion" name="userOpinion" />
                             <button type="submit">Publicar Opinion</button>
                         </form>
                         <Link href="/search">

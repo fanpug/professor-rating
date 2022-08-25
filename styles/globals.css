@@ -103,6 +103,10 @@ button.btn-blue {
   color: white;
 }
 
+button.btn-white {
+  background-color: var(--color-bg);
+  color: black;
+}
 
 .push-left {
   margin-left: auto;

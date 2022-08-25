@@ -10,7 +10,7 @@ import {
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const Login = () => {
+const Register = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const router = useRouter();
@@ -18,45 +18,42 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     const signUp = () => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((response) => {
-                console.log(response.user)
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(() => {
                 sessionStorage.setItem('Token', response.user.accessToken);
-                router.push('/')
-            })
-            .catch(err => {
-                alert('Cannot Log in')
-            })
+                router.push('/');
+            });
     }
 
     const signUpWithGoogle = () => {
         signInWithPopup(auth, googleProvider)
             .then((response) => {
-                sessionStorage.setItem('Token', response.user.accessToken)
-                console.log(response.user)
-                router.push('/')
-            })
+                sessionStorage.setItem('Token', response.user.accessToken);
+                console.log(response.user);
+                router.push('/');
+            });
     }
 
     useEffect(() => {
-        let token = sessionStorage.getItem('Token')
+        let token = sessionStorage.getItem('Token');
 
         if (token) {
-            router.push('/')
+            router.push('/');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, []);
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} >
+        
             <Head>
-                <title>Login</title>
-                <meta name="description" content="Login page for our website" />
+                <title>Signup</title>
+                <meta name="description" content="Register page for our website" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <main className={styles.main}>
-                <h1>Login</h1>
+                <h1>Signup</h1>
 
                 <input
                     placeholder='Correo Electrónico'
@@ -65,27 +62,32 @@ const Login = () => {
                     value={email}
                     type='email'
                 />
+
                 <input
                     placeholder='Contraseña'
                     className={styles.inputBox}
                     onChange={(event) => setPassword(event.target.value)}
                     value={password}
-                    type='password'
+                    type='email'
                 />
 
                 <button
                     className={styles.button}
-                    onClick={signUp}
-                >Login</button>
-                <br />
-                <button
-                    className={styles.googleAlt}
-                    onClick={signUpWithGoogle}>
-                    Login with Google
+                    onClick={signUp}>
+                    Registrarse
                 </button>
+
+                <br />
+
+                <button
+                    className="btn-white"
+                    onClick={signUpWithGoogle}>
+                    Sign Up with Google
+                </button>
+
             </main>
         </div>
-    )
+    );
 }
 
-export default Login;
+export default Register;
