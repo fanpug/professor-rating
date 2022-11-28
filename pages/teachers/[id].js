@@ -51,9 +51,9 @@ const TeacherProfile = ({ teacherProps }) => {
                         </div>
                         <div className={styles.fastOpinions}>
                             <h3>Opiniones Rapidas</h3>
-                            <p>Profesor barco: 87%</p>
+                            <p>Buen profe: 87%</p>
                             <p>Examenes Dificiles: 40%</p>
-                            <p>Enseña bien: 10%</p>
+                            <p>Enseña bien: 68%</p>
                         </div>
                     </div>
 
@@ -68,12 +68,12 @@ const TeacherProfile = ({ teacherProps }) => {
                             </select>
                         </div>
                         <div className={styles.recentOpinions}>
-                            <p className={styles.usernameText}>Nombre usuario: </p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, dicta officia odit laborum veritatis porro unde quidem aliquam sint ipsam tempore dolorem reprehenderit id quam distinctio nemo! Ratione, nobis voluptatem!</p>
-                            <p className={styles.usernameText}>Nombre usuario: </p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, dicta officia odit laborum veritatis porro unde quidem aliquam sint ipsam tempore dolorem reprehenderit id quam distinctio nemo! Ratione, nobis voluptatem!</p>
-                            <p className={styles.usernameText}>Nombre usuario: </p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, dicta officia odit laborum veritatis porro unde quidem aliquam sint ipsam tempore dolorem reprehenderit id quam distinctio nemo! Ratione, nobis voluptatem!</p>
+                            <p className={styles.usernameText}>Javier Gonzales: </p>
+                            <p>Muy buen profe, se nota que le gusta la materia porque enseña y te explica hasta el más minímo detalle que no hayas entendido.</p>
+                            <p className={styles.usernameText}>Juana Gabriela: </p>
+                            <p>Me explicaba todas las dudas que tenia y me tenía paciencia jajaja</p>
+                            <p className={styles.usernameText}>Humberto Navarro: </p>
+                            <p>Es buen profe nomas que sus examenes estaban dificiles, por lo que tenia que ponerme a estudiar desde una semana antes porque nomas no se me pegaba nada. Ayudaaaaaa!!!!</p>
                         </div>
                     </div>
                     <div className={styles.writeOpinion}>
